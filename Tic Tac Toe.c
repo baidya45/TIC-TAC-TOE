@@ -1,6 +1,8 @@
 #include<stdio.h>
+//#include<conio.h>
 #include<windows.h>
 #include<stdlib.h>
+#include<MMsystem.h>
 int k=10;
 char square[10]={'o','1','2','3','4','5','6','7','8','9'};
 int checkwin();
@@ -8,6 +10,7 @@ void drawboard();
 
 int main()
 {
+
     int player=1,i,choice;
     char mark; //x/o
 
@@ -47,7 +50,11 @@ int main()
     drawboard();
 
     if(i==1)
-    printf("==> player %d won ",--player);
+   {
+        printf("==> player %d won ",--player);
+        PlaySound(TEXT("C:\\Users\\91629\\Desktop\\My project\\C projects\\Notification.mp3"),NULL,SND_SYNC);
+
+   }
     else
     {
 
@@ -64,7 +71,7 @@ int checkwin()
 
    if( square[1]==square[2]  && square[2]==square[3])
         return 1;
-     if(square[4]==square[5]  && square[6]==square[6])
+     if(square[4]==square[5]  && square[5]==square[6])
         return 1;
      if(square[7]==square[8]  && square[8]==square[9])
         return 1;
